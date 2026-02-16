@@ -1,0 +1,27 @@
+{
+  "name": "custom-compression-tool",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Merdoth/custom-compression-tool.git"
+  },
+  "keywords": [],
+  "author": "Merdoth",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Merdoth/custom-compression-tool/issues"
+  },
+  "homepage": "https://github.com/Merdoth/custom-compression-tool#readme",
+  "dependencies": {
+    "fs": "^0.0.1-security"
+  }
+}
