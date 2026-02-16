@@ -3,10 +3,10 @@ import fs from "fs";
 import { buildFrequencyTable } from "./frequency.js";
 import { buildTree } from "./tree.js";
 import { generateCodes } from "./codes.js";
-import { encodeText } from "./encode/encodeText.js";
+import { encodeText } from "./encodeText.js";
 import { writeCompressed } from "./fileFormat.js";
 import { bitsToBuffer } from "./bitstream.js";
-import { encodeTree } from "./encode/encodeTree.js";
+import { encodeTree } from "./encodeTree.js";
 import { bitsToBuffer } from "./bitstream.js";
 // CLI entry point for the custom compression tool
 
@@ -27,4 +27,4 @@ const treeData = encodeTree(tree);
 const encodedBits = encodeText(text, codes);
 const buffer = bitsToBuffer(encodedBits);
 
-writeCompressed(outputFile, treeData, buffer);
+writeCompressed(outputFile, treeData, buffer, text.length);

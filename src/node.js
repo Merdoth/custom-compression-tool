@@ -1,4 +1,3 @@
-
 export class Node {
   constructor(char, freq, left = null, right = null) {
     this.char = char; // Character stored in the node

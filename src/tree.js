@@ -1,5 +1,7 @@
-import { Node } from "./node";
+import { Node } from "./node.js";
 
+
+// Builds a Huffman tree from a frequency table
 
 export function buildTree(freqTable) {
   const nodes = [];
