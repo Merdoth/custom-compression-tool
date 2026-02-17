@@ -25,3 +25,21 @@ test("encodes and decodes text correctly", () => {
 
   expect(decoded).toBe(text);
 });
+
+test("handles single character input", () => {
+  const text = "aaaaaa";
+
+  const freq = buildFrequencyTable(text);
+  const tree = buildTree(freq);
+  const codes = generateCodes(tree);
+
+  const encodedBits = encodeText(text, codes);
+  const buffer = bitsToBuffer(encodedBits);
+
+  const treeData = encodeTree(tree);
+  const rebuiltTree = decodeTree(treeData);
+
+  const decoded = decodeBits(buffer, rebuiltTree, text.length);
+
+  expect(decoded).toBe(text);
+});
