@@ -1,3 +1,5 @@
+import { Node } from "./node.js";
+
 export function decodeTree(data) {
   let index = 0;
 
@@ -25,9 +27,9 @@ export function decodeBits(buffer, tree, totalChars) {
   for (const byte of buffer) {
     for (let i = 7; i >= 0; i--) {
       const bit = (byte >> i) & 1;
-      node = bit === 0 ? node.left : node.right;
+      node = bit === 0 ? node?.left : node?.right;
 
-      if (node.isLeaf()) {
+      if (node?.isLeaf()) {
         result += node.char;
         node = tree;
 
