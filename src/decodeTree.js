@@ -21,15 +21,21 @@ export function decodeTree(data) {
 // decodes a bitstream using the Huffman tree
 
 export function decodeBits(buffer, tree, totalChars) {
+  
+  // 🔥 Handle single-character tree
+  if (tree.isLeaf()) {
+    return tree.char.repeat(totalChars);
+  }
+
   let result = "";
   let node = tree;
 
   for (const byte of buffer) {
     for (let i = 7; i >= 0; i--) {
       const bit = (byte >> i) & 1;
-      node = bit === 0 ? node?.left : node?.right;
+      node = bit === 0 ? node.left : node.right;
 
-      if (node?.isLeaf()) {
+      if (node.isLeaf()) {
         result += node.char;
         node = tree;
 
